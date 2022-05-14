@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import React, { useState } from 'react'
-import { BannerContainer, BannerTitle, EmailInput, ImageEthereum, LeftContainer, LoginContainer, NextButton, PasswordInput, RightContainer, ChangeButton, Title } from './components/MainComponents'
+import { BannerContainer, BannerTitle, EmailInput, ImageEthereum, LeftContainer, LoginContainer, NextButton, RightContainer, ChangeButton, Title } from './components/MainComponents'
 
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setLogedIn } from '../slice'
 
@@ -14,7 +14,7 @@ const Container = styled.div`
 export default function Main() {
     const [signUpMode, setSignUpMode] = useState(false)
     const [email, setEmail] = useState('')
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const dispatch = useDispatch();
 
     const handleClick = (event: any) => {
@@ -25,6 +25,7 @@ export default function Main() {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value }: { value: string } = event.target
         setEmail(value);
+        console.log(email)
     }
 
     const handleSignUp = (event: any) => {
