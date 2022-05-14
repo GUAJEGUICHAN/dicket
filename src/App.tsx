@@ -16,7 +16,6 @@ const Container = styled.div`
   flex-direction: row;
 `;
 const SideBlank = styled.div`
-  background-color: aqua;
   flex:1;
 `
 const RoutesContainer = styled.div`
