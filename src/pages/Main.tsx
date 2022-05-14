@@ -17,7 +17,7 @@ export default function Main() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-    const handleClick = (event: Event) => {
+    const handleClick = (event: any) => {
         event.preventDefault();
         setSignUpMode(p => !p)
     }
