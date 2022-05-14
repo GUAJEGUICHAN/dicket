@@ -13,7 +13,7 @@ const Button = styled.button`
 export default function MyPage() {
     const navigate = useNavigate()
     const dispath = useDispatch();
-    const handleClick = (event: Event) => {
+    const handleClick = (event: any) => {
         event.preventDefault()
         navigate('/')
         dispath(setLogedIn(false))
