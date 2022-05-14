@@ -27,12 +27,14 @@ export default function Main() {
         setEmail(value);
     }
 
-    const handleSignUp = (event: Event) => {
+    const handleSignUp = (event: any) => {
+        event.preventDefault();
         console.log('회원가입을 했습니다.')
         setSignUpMode(false);
     }
 
-    const handleSignIn = (event: Event) => {
+    const handleSignIn = (event: any) => {
+        event.preventDefault();
         console.log('로그인을 했습니다.')
         dispatch(setLogedIn(true));
     }
