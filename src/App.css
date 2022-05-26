@@ -2,3 +2,8 @@
     font-family: 'junbotdae';
     src: url("./font/210_junbotdae_OTF_L.otf");
 }
+
+@font-face {
+    font-family: 'GureumGothic';
+    src: url("./font/210\ 구름고딕OTF\ 090.otf");
+}
