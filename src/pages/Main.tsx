@@ -50,15 +50,15 @@ export default function Main() {
                         <LoginContainer>
                             <Title>회원가입</Title>
                             <EmailInput
-                                onChange={handleChange}
+                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => { handleChange(event) }}
                             />
                             <NextButton
-                                onClick={handleSignUp}
+                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => { handleSignUp(event) }}
                             >
                                 Sign Up
                             </NextButton>
                             <ChangeButton
-                                onClick={handleClick}
+                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => { handleClick(event) }}
                             >
                                 로그인
                             </ChangeButton>
@@ -67,15 +67,19 @@ export default function Main() {
                         <LoginContainer>
                             <Title>로그인</Title>
                             <EmailInput
-                                onChange={handleChange}
+                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => { handleChange(event) }}
                             />
                             <NextButton
-                                onClick={handleSignIn}
+                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                    handleSignIn(event)
+                                }}
                             >
                                 Sign In
                             </NextButton>
                             <ChangeButton
-                                onClick={handleClick}
+                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                    handleClick(event)
+                                }}
                             >
                                 회원가입
                             </ChangeButton>
