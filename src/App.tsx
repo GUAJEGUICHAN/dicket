@@ -9,6 +9,9 @@ import Main from "./pages/Main";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
+import ConcertDetail from "./pages/ConcertDetail";
+import ReservedDetail from "./pages/ReservedDetail";
+import Edit from "./pages/Edit";
 
 const Container = styled.div`
   height:100vh;
@@ -35,6 +38,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mypage" element={<MyPage />} />
+            <Route path="/detail" element={<ConcertDetail />} />
+            <Route path="/reservedinfo/*" element={<ReservedDetail />} />
+            <Route path="/edit" element={<Edit />} />
           </Routes>
           :
           <Routes>
