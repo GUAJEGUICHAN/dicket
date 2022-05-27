@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { setLogedIn } from '../slice'
 import { Junbotdae } from '../font/Fonts'
 import PropTypes from "prop-types";
-import { BlockProps } from './MyPage'
 
 const Container = styled(Junbotdae)`
     font-family: junbotdae;
@@ -33,6 +32,7 @@ const Title = styled.span`
     line-height: 100px;
     vertical-align: middle;
     padding-left: 10px;
+    margin: auto;
 `
 const Button = styled.button`
     background-color:transparent;
@@ -51,7 +51,7 @@ const Img = styled.image`
 
 `
 const Detail = styled.div`
-
+    
 `
 const RoundButton = styled.button`
     background-color: black;
@@ -65,27 +65,57 @@ const Titles = styled.div`
     width: 100%;
     font-weight: bold;
 `
-const Content = styled.div`
+const Details = styled.div`
     width: 100%;
 `
 const Table = styled.table`
-    width: 30%;
+    width: 100%;
+    margin: auto;
+`
+const ImageContianer = styled.div`
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+`
+const MainImage = styled.img`
+    border-radius:23px;
+    height:291px;
+    width:211px;
+    border: 5px solid black;
+`
+const Look = styled.button`
+    background-color:transparent;
+    border: none;
+    font-size: 20px;
+    margin-left: auto;
+`
+const Lookcontainer = styled.div`
+    display: flex;
+    height: 50px;
+    flex-direction:row;
 `
 function Block({img, name, place, date, seat}:any) {
     return(
         <div>
             <Table>
                 <tr>
-                    <td><img src={img}/></td>
+                    <td>
+                        <ImageContianer>
+                            <MainImage
+                                src={img}
+                            />
+                        </ImageContianer>
+                    </td>
                     <td>
                         <Titles>
-                        <p>티켓<br></br>장소<br></br>예약날짜<br></br>예약좌석</p>
+                        <p>티켓<br></br>장소<br></br>공연날짜</p>
                         </Titles>
                     </td>
                     <td>
-                        <Content>
-                        <p>{name}<br></br>{place}<br></br>{date}<br></br>{seat}</p>
-                        </Content>
+                        <Details>
+                        <p>{name}<br></br>{place}<br></br>{date}</p>
+                        </Details>
                     </td>
                 </tr>
             </Table>
@@ -99,8 +129,8 @@ Block.propTypes = {
     date: PropTypes.string.isRequired,
     seat: PropTypes.string.isRequired,
 };
-export default function Details() {
-    const [info, setInfo] = useState([{img:"src\images\test.png", name: "아이다", place: "블루스퀘어", date: "05.05", seat: "A열 2번"}]);
+export default function MyTicket() {
+    const [info, setInfo] = useState([{img:"https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg", name: "아이다", place: "블루스퀘어", date: "05.05", seat: "A열 2번"}]);
     const navigate = useNavigate()
     const dispath = useDispatch();
     const handleClick = (event: any) => {
@@ -111,44 +141,30 @@ export default function Details() {
     return (
         <div>
             <Container>
-                <img>이미지</img>
-                <Container>
-                    <Title>뮤지컬</Title>
-                </Container>
-                <Detail>
-                    {info.map(info => (
-                        <Block 
-                        img={info.img}
-                        name={info.name}
-                        place={info.place}
-                        date={info.date}
-                        seat={info.seat}
-                        />
-                    ))}     
-                </Detail>
-                <RoundButton>수정하기</RoundButton>
+                <Title>
+                    내가 올린 티켓
+                </Title>
             </Container>
-            <Table>
-                <tr>
-                    <td><p>예약현황</p></td>
-                    <td><p>29/30</p></td>
-                    <hr></hr>
-                </tr>
-                <tr>
-                    <td><p>남은 좌석 수</p></td>
-                    <td><p>1/30</p></td>
-                    <hr></hr>
-                </tr>
-                <tr>
-                    <td><p>예약자 명단</p></td>
-                    <hr></hr>
-                </tr>
-                <tr>
-                    <td><p>지갑 주소</p></td>
-                    <td><p>좌석</p></td>
-                </tr>
-            </Table>
+            <Detail>
+                {info.map(info => (
+                    <Block 
+                    img={info.img}
+                    name={info.name}
+                    place={info.place}
+                    date={info.date}
+                    seat={info.seat}
+                    />
+                ))}     
+            </Detail>
+            <Lookcontainer>
+                <Look onClick={()=>{
+                    navigate('/details2')
+                }}>
+                    자세히 보기 &gt; 
+                </Look>
+            </Lookcontainer>
+            <hr></hr>
+            <RoundButton>등록하기</RoundButton>
         </div>
-       
     )
 }

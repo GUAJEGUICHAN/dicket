@@ -9,6 +9,9 @@ import Main from "./pages/Main";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
+import MyTicket from "./pages/MyTicket";
+import Details from "./pages/Details";
+import Details2 from "./pages/Details2";
 
 const Container = styled.div`
   height:100vh;
@@ -35,6 +38,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mypage" element={<MyPage />} />
+            <Route path="/myticket" element={<MyTicket />} />
+            <Route path="/details" element={<Details />} />
+            <Route path="/details2" element={<Details2 />} />
+            
           </Routes>
           :
           <Routes>
