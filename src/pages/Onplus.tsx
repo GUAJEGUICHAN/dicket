@@ -1,53 +1,56 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import "./Home.css";
+import styled from 'styled-components';
 
-export default function Onplus() {
-  const [] = React.useState([
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-  ]);
+const Container = styled.div`
+  background: white;
+  width: 100%;
+  height: 100%;
+`
+const List = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap; 
+  margin-top:5%; 
+`
+const Text = styled.h1`
+    font-size: 1em;
+    text-align: center;
+    width:100%;
+    margin: 50px;
+    line-height: 90px;
+`
 
+const Header = styled.div`   
+    font-size:45px;
+    display:flex;
+    margin-top:40px;
+    border-bottom: solid 3px black;
+`
+const Ticket = styled.div`
+    margin: 20px;
+    height: 480px;
+    width: 348px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+function Onplus() {
   return (
-    <div className="item">
-        <div className="onticket">
-            <div className="top">
-                <h1>예약 가능</h1><hr/>
-            </div>
-            <div className="screen">
-                <img className="endimg"
-                alt="item"
-                src="https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg"/>
-                <img className="endimg"
-                alt="item"
-                src="https://search.pstatic.net/common?type=f&size=206x296&quality=100&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220125_250%2F16430936130824Cb0X_JPEG%2F269_25586523_image_url_1643093613001.jpg"/>
-                <img className="endimg"
-                alt="item"
-                src="https://search.pstatic.net/common?type=f&size=206x296&quality=100&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220126_115%2F16431808642393cq12_JPEG%2F269_image_url_1643180864185.jpg"/>
-                <div className="endemp"><p>공연 준비중</p></div>
-                <div className="endemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-                <div className="ticketemp"><p>공연 준비중</p></div>
-            </div>
-        </div>
-    </div>
+    <Container>
+        <Header>
+            <Text>
+                예약 가능
+            </Text>
+        </Header>
+        <List>
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(ticket => <Ticket>{ticket}</Ticket>)}
+        </List>
+    </Container>
   );
-};
+}
+
+export default Onplus;
