@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { setLogedIn } from '../slice'
 import { Junbotdae } from '../font/Fonts'
-import PropTypes from "prop-types";
-import { BlockProps } from './MyPage'
+import Block from './components/Block'
 
 const Container = styled(Junbotdae)`
     font-family: junbotdae;
@@ -71,36 +70,9 @@ const Content = styled.div`
 const Table = styled.table`
     width: 30%;
 `
-function Block({img, name, place, date, seat}:any) {
-    return(
-        <div>
-            <Table>
-                <tr>
-                    <td><img src={img}/></td>
-                    <td>
-                        <Titles>
-                        <p>티켓<br></br>장소<br></br>예약날짜<br></br>예약좌석</p>
-                        </Titles>
-                    </td>
-                    <td>
-                        <Content>
-                        <p>{name}<br></br>{place}<br></br>{date}<br></br>{seat}</p>
-                        </Content>
-                    </td>
-                </tr>
-            </Table>
-        </div>
-    )
-}
-Block.propTypes = {
-    img: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    place: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    seat: PropTypes.string.isRequired,
-};
+
 export default function Details() {
-    const [info, setInfo] = useState([{img:"src\images\test.png", name: "아이다", place: "블루스퀘어", date: "05.05", seat: "A열 2번"}]);
+    const [info, setInfo] = useState([{ img: "src\images\test.png", name: "아이다", place: "블루스퀘어", date: "05.05", seat: "A열 2번" }]);
     const navigate = useNavigate()
     const dispath = useDispatch();
     const handleClick = (event: any) => {
@@ -117,14 +89,15 @@ export default function Details() {
                 </Container>
                 <Detail>
                     {info.map(info => (
-                        <Block 
-                        img={info.img}
-                        name={info.name}
-                        place={info.place}
-                        date={info.date}
-                        seat={info.seat}
+                        <Block
+                            to='#'
+                            img={info.img}
+                            name={info.name}
+                            place={info.place}
+                            date={info.date}
+                            seat={info.seat}
                         />
-                    ))}     
+                    ))}
                 </Detail>
                 <RoundButton>수정하기</RoundButton>
             </Container>
@@ -149,6 +122,6 @@ export default function Details() {
                 </tr>
             </Table>
         </div>
-       
+
     )
 }
