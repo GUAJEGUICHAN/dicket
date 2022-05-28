@@ -5,15 +5,15 @@ import Onplus from "./Onplus";
 import Endplus from "./Endplus";
 
 const Container = styled.div`
-  background: white;
-  width: 100%;
-  height: 100%;
+    background: white;
+    width: 100%;
+    height: 100%;
 `
 const List = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap; 
-  margin-top:5%; 
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap; 
+    margin-top:5%; 
 `
 const Text = styled.h1`
     font-size: 1em;
