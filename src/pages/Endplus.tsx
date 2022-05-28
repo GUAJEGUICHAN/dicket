@@ -41,14 +41,14 @@ const Ticket = styled.div`
 function Endplus() {
   return (
     <Container>
-        <Header>
-            <Text>
-                예약 종료
-            </Text>
-        </Header>
-        <List>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(ticket => <Ticket>{ticket}</Ticket>)}
-        </List>
+      <Header>
+        <Text>
+          예약 종료
+        </Text>
+      </Header>
+      <List>
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(ticket => <Ticket>{ticket}</Ticket>)}
+      </List>
     </Container>
   );
 }

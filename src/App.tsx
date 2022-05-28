@@ -9,6 +9,9 @@ import Main from "./pages/Main";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
+import ConcertDetail from "./pages/ConcertDetail";
+import ReservedDetail from "./pages/ReservedDetail";
+import Edit from "./pages/Edit";
 import MyConcerts from "./pages/MyConcerts";
 import Details from "./pages/Details";
 import ConcertManager from "./pages/ConcertManager";
@@ -41,6 +44,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mypage" element={<MyPage />} />
+            <Route path="/detail" element={<ConcertDetail />} />
+            <Route path="/reservedinfo/*" element={<ReservedDetail />} />
+            <Route path="/edit" element={<Edit />} />
             <Route path="/MyConcerts" element={<MyConcerts />} />
             <Route path="/details" element={<Details />} />
             <Route path="/concertdetail/*" element={<ConcertManager />} />
