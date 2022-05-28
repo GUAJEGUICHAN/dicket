@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import { GureumGothicSpan } from '../../font/Fonts'
-import { Text } from '../TicketDetail'
 const Container = styled.div`
     display:flex;
     flex-direction:row;

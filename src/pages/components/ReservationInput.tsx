@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { InitialStateProp } from '../../slice'
@@ -19,7 +19,8 @@ interface ReservationInputProps {
 }
 
 export default function ReservationInput({ setPopUp }: ReservationInputProps) {
-    const [seatMode, setSeatMode] = useState(false)
+    // const [seatMode, setSeatMode] = useState(false)
+    const seatMode = false;
     const { price, seatClassesInfo } = useSelector((state: InitialStateProp) => ({
         price: state.reservationInfo.price,
         seatClassesInfo: state.reservationInfo.priceList

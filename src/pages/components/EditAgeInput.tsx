@@ -18,11 +18,6 @@ const Select = styled.select`
     font-size:40px;
 `
 
-const Input = styled.input`
-    flex:7;
-    font-size:40px;
-`
-
 export default function EditAgeInput() {
     const [rating, setRating] = useState(0)
 

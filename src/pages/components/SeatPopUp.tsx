@@ -103,6 +103,7 @@ export default function SeatPopUp({ setPopUp, seatImage }: SeatPopUpProps) {
             </CloseContainer>
             <ImageContainer>
                 <img
+                    alt='#'
                     // src="../../images/Seats.png"
                     src={seatImage}
                 />
