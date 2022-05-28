@@ -9,6 +9,10 @@ import Main from "./pages/Main";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
+import MyConcerts from "./pages/MyConcerts";
+import Details from "./pages/Details";
+import ConcertManager from "./pages/ConcertManager";
+import MoreReserved from "./pages/MoreReserved";
 import Onplus from "./pages/Onplus";
 import Endplus from "./pages/Endplus";
 
@@ -37,6 +41,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mypage" element={<MyPage />} />
+            <Route path="/MyConcerts" element={<MyConcerts />} />
+            <Route path="/details" element={<Details />} />
+            <Route path="/concertdetail/*" element={<ConcertManager />} />
+            <Route path="/morereserved" element={<MoreReserved />} />
             <Route path="/moreOpen" element={<Onplus />} />
             <Route path="/moreClosed" element={<Endplus />} />
           </Routes>
