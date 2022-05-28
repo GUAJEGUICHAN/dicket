@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.987d32ad.css",
-    "main.js": "/static/js/main.210d7bb8.js",
+    "main.js": "/static/js/main.09affb43.js",
     "static/media/210_gureumgothic_OTF_090.otf": "/static/media/210_gureumgothic_OTF_090.f1b00f4122aabfc39b8c.otf",
     "static/media/210_junbotdae_OTF_L.otf": "/static/media/210_junbotdae_OTF_L.543aaf8e6e9deff8a0ad.otf",
     "static/media/Seats.png": "/static/media/Seats.b7036236e2b32092c5f9.png",
     "index.html": "/index.html",
     "main.987d32ad.css.map": "/static/css/main.987d32ad.css.map",
-    "main.210d7bb8.js.map": "/static/js/main.210d7bb8.js.map"
+    "main.09affb43.js.map": "/static/js/main.09affb43.js.map"
   },
   "entrypoints": [
     "static/css/main.987d32ad.css",
-    "static/js/main.210d7bb8.js"
+    "static/js/main.09affb43.js"
   ]
 }

@@ -139,7 +139,6 @@ export default function ConcertManager() {
                         </RoundButton>
                     </ButtonDiv>
                 </ContentContainer>
-
             </Container>
             <Bottom>
                 <LineBox>

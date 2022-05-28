@@ -22,7 +22,7 @@ export default function Main() {
         setSignUpMode(p => !p)
     }
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: any) => {
         const { value }: { value: string } = event.target
         setEmail(value);
         console.log(email)
@@ -50,15 +50,15 @@ export default function Main() {
                         <LoginContainer>
                             <Title>회원가입</Title>
                             <EmailInput
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => { handleChange(event) }}
+                                onChange={(event: any) => { handleChange(event) }}
                             />
                             <NextButton
-                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => { handleSignUp(event) }}
+                                onClick={(event: any) => { handleSignUp(event) }}
                             >
                                 Sign Up
                             </NextButton>
                             <ChangeButton
-                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => { handleClick(event) }}
+                                onClick={(event: any) => { handleClick(event) }}
                             >
                                 로그인
                             </ChangeButton>
@@ -67,17 +67,17 @@ export default function Main() {
                         <LoginContainer>
                             <Title>로그인</Title>
                             <EmailInput
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => { handleChange(event) }}
+                                onChange={(event: any) => { handleChange(event) }}
                             />
                             <NextButton
-                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                onClick={(event: any) => {
                                     handleSignIn(event)
                                 }}
                             >
                                 Sign In
                             </NextButton>
                             <ChangeButton
-                                onClick={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                onClick={(event: any) => {
                                     handleClick(event)
                                 }}
                             >
