@@ -10,7 +10,7 @@ const Text = styled.h1`
     width:100%;
     margin: 50px;
     line-height: 90px;
-`
+`               
 const Header = styled.div`   
     font-size:45px;
     display:flex;
