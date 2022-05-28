@@ -63,11 +63,11 @@ const Lookcontainer = styled.div`
 
 export default function MyConcerts() {
     const [info, setInfo] = useState([{ img: "https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg", name: "아이다", place: "블루스퀘어", date: "05.05", seat: "A열 2번" }]);
-    const navigate = useNavigate()
+    const navigation = useNavigate()
     const dispath = useDispatch();
     const handleClick = (event: any) => {
         event.preventDefault()
-        navigate('/')
+        navigation('/')
         dispath(setLogedIn(false))
     }
     return (
@@ -91,13 +91,19 @@ export default function MyConcerts() {
             </Detail>
             <Lookcontainer>
                 <Look onClick={() => {
-                    navigate('/concertmanager')
+                    navigation('/concertmanager')
                 }}>
                     자세히 보기
                 </Look>
             </Lookcontainer>
             <hr></hr>
-            <RoundButton>등록하기</RoundButton>
+            <RoundButton
+                onClick={() => {
+                    navigation('/edit')
+                }}
+            >
+                등록하기
+            </RoundButton>
         </div>
     )
 }

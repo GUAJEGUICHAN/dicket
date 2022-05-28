@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -39,16 +40,25 @@ const Ticket = styled.div`
 `;
 
 function Onplus() {
+  const navigation = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <Container>
-        <Header>
-            <Text>
-                예약 가능
-            </Text>
-        </Header>
-        <List>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(ticket => <Ticket>{ticket}</Ticket>)}
-        </List>
+      <Header>
+        <Text>
+          예약 가능
+        </Text>
+      </Header>
+      <List>
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(ticket =>
+          <Ticket
+            onClick={() => navigation('/ticketdetail/1')}
+          >
+            {ticket}
+          </Ticket>)}
+      </List>
     </Container>
   );
 }

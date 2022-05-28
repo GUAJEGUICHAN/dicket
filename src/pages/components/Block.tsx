@@ -46,12 +46,12 @@ export interface BlockProps {
     seat: string;
 }
 export default function Block({ to, img, name, place, date, seat }: BlockProps) {
-    const navigate = useNavigate();
+    const navigation = useNavigate();
     return (
         <Box>
             <Table
                 onClick={() => {
-                    navigate(to)
+                    navigation(to)
                 }}
             >
                 <tr>

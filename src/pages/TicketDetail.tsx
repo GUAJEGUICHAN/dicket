@@ -138,7 +138,7 @@ const SubInformationContent = styled.div`
 `
 
 
-export default function ConcertDetail() {
+export default function TicketDetail() {
     const dispatch = useDispatch()
     const navigation = useNavigate()
 

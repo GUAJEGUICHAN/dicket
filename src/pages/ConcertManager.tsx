@@ -108,6 +108,7 @@ const Item = styled.div`
 `
 
 export default function ConcertManager() {
+    const navigation = useNavigate()
     const [info, setInfo] = useState([{ img: "https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg", name: "블루스퀘어", place: "2022.05.10", date: "160분", seat: "8세 이상 관람가능", price: [50000, 40000, 30000] }]);
     return (
         <div>
@@ -131,7 +132,12 @@ export default function ConcertManager() {
                         ))}
                     </Detail>
                     <ButtonDiv>
-                        <RoundButton>수정하기</RoundButton>
+                        <RoundButton
+                            OnClick={() => {
+                                navigation('/edit')
+                            }}
+                        >수정하기
+                        </RoundButton>
                     </ButtonDiv>
                 </ContentContainer>
 

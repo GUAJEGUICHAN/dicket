@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import EditInput from './components/EditInput'
 import EditDateTimeInput from './components/EditDateTimeInput'
@@ -40,6 +40,11 @@ const ButtonsContainer = styled.div`
 export default function Edit() {
 
     const navigation = useNavigate()
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <Container>
             <Header>

@@ -14,7 +14,7 @@ const Container = styled.div`
 export default function Main() {
     const [signUpMode, setSignUpMode] = useState(false)
     const [email, setEmail] = useState('')
-    // const navigate = useNavigate()
+    // const navigation = useNavigate()
     const dispatch = useDispatch();
 
     const handleClick = (event: any) => {

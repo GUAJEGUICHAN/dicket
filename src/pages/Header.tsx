@@ -44,13 +44,13 @@ const Text = styled.span`
 `
 
 export default function Header() {
-    const navigate = useNavigate()
+    const navigation = useNavigate()
     const { isLogedIn } = useSelector((state: InitialStateProp) => ({
         isLogedIn: state.isLogedIn
     }))
     const handleClick = (event: any, to: string) => {
         event.preventDefault();
-        if (isLogedIn) { navigate(to) }
+        if (isLogedIn) { navigation(to) }
     }
     return (
         <Container>

@@ -62,7 +62,7 @@ const Lookcontainer = styled.div`
 
 export default function MoreReserved() {
     const info = [{ img: "https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg", name: "아이다", place: "블루스퀘어 신한카드홀", date: "2022.05.14 PM 02:00", seat: "A열 9번" }]
-    const navigate = useNavigate()
+    const navigation = useNavigate()
 
     return (
         <div>
@@ -74,7 +74,7 @@ export default function MoreReserved() {
             <Detail>
                 {info.map(info => (
                     <Block
-                        to='/concertdetail/*'
+                        to='/reservedinfo/1'
                         img={info.img}
                         name={info.name}
                         place={info.place}

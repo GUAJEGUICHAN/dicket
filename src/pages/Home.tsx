@@ -67,7 +67,13 @@ function Home() {
                 </SubText>
             </Header>
             <List>
-                {[0, 1, 2, 3, 4, 5].map(ticket => <Ticket>{ticket}</Ticket>)}
+                {[0, 1, 2, 3, 4, 5].map(ticket =>
+                    <Ticket
+                        onClick={() => navigation('/ticketdetail/1')}
+                    >
+                        {ticket}
+                    </Ticket>
+                )}
             </List>
             <Header>
                 <Text>
@@ -83,7 +89,12 @@ function Home() {
                 </SubText>
             </Header>
             <List>
-                {[1, 2, 3, 3, 5, 6].map(ticket => <Ticket>{ticket}</Ticket>)}
+                {[1, 2, 3, 3, 5, 6].map(ticket =>
+                    <Ticket
+                        onClick={() => navigation('/ticketdetail/1')}
+                    >
+                        {ticket}
+                    </Ticket>)}
             </List>
         </Container>
     );

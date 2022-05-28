@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
@@ -73,13 +73,18 @@ const Table = styled.table`
 
 export default function Details() {
     const [info, setInfo] = useState([{ img: "src\images\test.png", name: "아이다", place: "블루스퀘어", date: "05.05", seat: "A열 2번" }]);
-    const navigate = useNavigate()
+    const navigation = useNavigate()
     const dispath = useDispatch();
     const handleClick = (event: any) => {
         event.preventDefault()
-        navigate('/')
+        navigation('/')
         dispath(setLogedIn(false))
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <div>
             <Container>
