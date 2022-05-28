@@ -12,6 +12,12 @@ import MyPage from "./pages/MyPage";
 import ConcertDetail from "./pages/ConcertDetail";
 import ReservedDetail from "./pages/ReservedDetail";
 import Edit from "./pages/Edit";
+import MyConcerts from "./pages/MyConcerts";
+import Details from "./pages/Details";
+import ConcertManager from "./pages/ConcertManager";
+import MoreReserved from "./pages/MoreReserved";
+import Onplus from "./pages/Onplus";
+import Endplus from "./pages/Endplus";
 
 const Container = styled.div`
   height:100vh;
@@ -41,6 +47,12 @@ export default function App() {
             <Route path="/detail" element={<ConcertDetail />} />
             <Route path="/reservedinfo/*" element={<ReservedDetail />} />
             <Route path="/edit" element={<Edit />} />
+            <Route path="/MyConcerts" element={<MyConcerts />} />
+            <Route path="/details" element={<Details />} />
+            <Route path="/concertdetail/*" element={<ConcertManager />} />
+            <Route path="/morereserved" element={<MoreReserved />} />
+            <Route path="/moreOpen" element={<Onplus />} />
+            <Route path="/moreClosed" element={<Endplus />} />
           </Routes>
           :
           <Routes>
