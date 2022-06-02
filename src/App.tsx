@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import styled from "@emotion/styled";
 
-import { useSelector } from "react-redux";
-import { InitialStateProp } from "./slice";
+import { useDispatch, useSelector } from "react-redux";
+import { InitialStateProp, setAddress } from "./slice";
 import Main from "./pages/Main";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
@@ -30,17 +30,57 @@ const SideBlank = styled.div`
 const RoutesContainer = styled.div`
   flex-basis: 1166px;
 `
+
+export const getAccount = async () => {
+  try {
+    if (window.ethereum) {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      })
+      return accounts[0]
+    } else {
+      alert("Install Metamask!")
+      return ''
+    }
+  } catch (error) {
+    console.log(error)
+    return ''
+  }
+}
+
 export default function App() {
   const { isLogedIn } = useSelector((state: InitialStateProp) => ({
     isLogedIn: state.isLogedIn
   }))
+  const dispatch = useDispatch();
+
+  const { myAddress } = useSelector((state: InitialStateProp) => ({
+    myAddress: state.authState.address
+  }));
+
+  useEffect(() => {
+    console.log(myAddress);
+  }, [])
+
+  useEffect(() => {
+    // console.log(myAddress);
+    getAccount()
+      .then(res => {
+        console.log(res)
+        dispatch(setAddress(res))
+      })
+      .catch(err => {
+        console.log(err)
+        dispatch(setAddress(''))
+      });
+  }, [Routes])
 
   return (
     <Container>
       <SideBlank />
       <RoutesContainer>
         <Header />
-        {isLogedIn ?
+        {isLogedIn && myAddress ?
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mypage" element={<MyPage />} />

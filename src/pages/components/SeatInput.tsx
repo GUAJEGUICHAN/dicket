@@ -60,7 +60,7 @@ export default function SeatInput({ setPopUp }: SeatInputProps) {
                     disabled
                 />
                 <SeatButton
-                    onClick={() => setPopUp(true)}
+                    onClick={() => { setPopUp(true) }}
                 >
                     찾기
                 </SeatButton>

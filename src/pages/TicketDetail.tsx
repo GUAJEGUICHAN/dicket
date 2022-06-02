@@ -141,7 +141,6 @@ export default function TicketDetail() {
     const isClosed = false
     const [isPopUp, setPopUp] = useState(false)
 
-
     useEffect(() => {
         dispatch(setReservationInfo({
             name: name,
@@ -150,7 +149,7 @@ export default function TicketDetail() {
             date: date,
             priceList: seatPriceList
         }))
-    }, [name, location, date, time, seatPriceList, dispatch])
+    }, [])
     // }, [dispatch])
 
     return (
@@ -170,10 +169,6 @@ export default function TicketDetail() {
                         </ReservationInformationHeader>
                         <DivisionLine />
                         {!reservationMode ? <InfoContainer>
-                            {/* {concertInformation.map(({ key, name, content }) => {
-                                console.log(name, content)
-                                return < Info key={key} name={name} content={content} />
-                            })} */}
                             < Info name='장소' content={concertInformation.location} />
                             < Info name='공연날짜' content={concertInformation.date} />
                             <Info

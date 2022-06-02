@@ -57,7 +57,7 @@ function Home() {
                 </Text>
                 <SubText>
                     <div
-                        onClick={() => navigation('/moreOpen')}
+                        onClick={() => { navigation('/moreOpen') }}
                         style={{ textDecoration: 'none', color: 'inherit' }}
                     >
                         더보기
@@ -68,7 +68,7 @@ function Home() {
                 {[0, 1, 2, 3, 4, 5].map(ticket =>
                     <Ticket
                         key={ticket}
-                        onClick={() => navigation('/ticketdetail/1')}
+                        onClick={() => { navigation('/ticketdetail/2') }}
                     >
                         {ticket}
                     </Ticket>
@@ -80,7 +80,7 @@ function Home() {
                 </Text>
                 <SubText>
                     <div
-                        onClick={() => navigation('/moreClosed')}
+                        onClick={() => { navigation('/moreClosed') }}
                         style={{ textDecoration: 'none', color: 'inherit' }}
                     >
                         더보기
@@ -91,7 +91,7 @@ function Home() {
                 {[0, 1, 2, 3, 5, 6].map(ticket =>
                     <Ticket
                         key={ticket}
-                        onClick={() => navigation('/ticketdetail/1')}
+                        onClick={() => { navigation('/ticketdetail/2') }}
                     >
                         {ticket}
                     </Ticket>)}

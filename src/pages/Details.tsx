@@ -41,6 +41,7 @@ export default function Details() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+
     }, [])
 
     return (
