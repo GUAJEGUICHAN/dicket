@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react'
 
 import SeatImage from "../images/Seats.png"
 
-import { GureumGothic, GureumGothicSpan, JunbotdaeSpan } from '../font/Fonts'
+import { GureumGothic, GureumGothicSpan } from '../font/Fonts'
 import Info from './components/Info'
 import { Button } from './components/MainComponents'
 import ReservationInput from './components/ReservationInput'
 import SeatPopUp from './components/SeatPopUp'
 import SubInformation from './components/SubInformation'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setReservationInfo } from '../slice'
 import { useNavigate } from 'react-router-dom'
 
@@ -106,35 +106,11 @@ const InfoContainer = styled.div`
     margin:40px;
 `
 
-
-const InfoBox = styled.div``
-
-
-
 const MainImage = styled.img`
     border-radius:44px;
     height:638px;
     width:463px;
     border: 5px solid black;
-`
-
-const SubInformationContainer = styled.div`
-
-`
-
-const SubInformationHeader = styled.div`
-    border-bottom: 3px solid black;
-    padding:30px;
-
-        /* background-color:blue; */
-`
-
-const SubInformationHeaderText = styled(JunbotdaeSpan)`
-    font-size:40px;
-`
-
-const SubInformationContent = styled.div`
-    padding:40px;
 `
 
 
@@ -158,21 +134,23 @@ export default function TicketDetail() {
         age: '8세이상 관람가능',
         seatPriceList: concertPriceList
     }
+    const { name, location, date, time, seatPriceList } = concertInformation
 
     const [reservationMode, setReservationMode] = useState(false)
-    const [isClosed, setClosed] = useState(false)
+    // const [isClosed, setClosed] = useState(false)
+    const isClosed = false
     const [isPopUp, setPopUp] = useState(false)
-
 
     useEffect(() => {
         dispatch(setReservationInfo({
-            name: concertInformation.name,
-            location: concertInformation.location,
-            time: concertInformation.time,
-            date: concertInformation.date,
-            priceList: concertInformation.seatPriceList
+            name: name,
+            location: location,
+            time: time,
+            date: date,
+            priceList: seatPriceList
         }))
     }, [])
+    // }, [dispatch])
 
     return (
         <Container>
@@ -191,10 +169,6 @@ export default function TicketDetail() {
                         </ReservationInformationHeader>
                         <DivisionLine />
                         {!reservationMode ? <InfoContainer>
-                            {/* {concertInformation.map(({ key, name, content }) => {
-                                console.log(name, content)
-                                return < Info key={key} name={name} content={content} />
-                            })} */}
                             < Info name='장소' content={concertInformation.location} />
                             < Info name='공연날짜' content={concertInformation.date} />
                             <Info

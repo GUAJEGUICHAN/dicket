@@ -103,6 +103,7 @@ export default function SeatPopUp({ setPopUp, seatImage }: SeatPopUpProps) {
             </CloseContainer>
             <ImageContainer>
                 <img
+                    alt='#'
                     // src="../../images/Seats.png"
                     src={seatImage}
                 />
@@ -126,7 +127,7 @@ export default function SeatPopUp({ setPopUp, seatImage }: SeatPopUpProps) {
             </SelectContainer>
             <ButtonContainer>
                 <ChooseButton
-                    onClick={(event: React.ChangeEvent<HTMLInputElement>) => { handleClick(event) }}
+                    onClick={(event: any) => { handleClick(event) }}
                 >
                     좌석선택
                 </ChooseButton>

@@ -1,8 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
-import Onplus from "./Onplus";
-import Endplus from "./Endplus";
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
     background: white;
@@ -59,7 +57,7 @@ function Home() {
                 </Text>
                 <SubText>
                     <div
-                        onClick={() => navigation('/moreOpen')}
+                        onClick={() => { navigation('/moreOpen') }}
                         style={{ textDecoration: 'none', color: 'inherit' }}
                     >
                         더보기
@@ -69,7 +67,8 @@ function Home() {
             <List>
                 {[0, 1, 2, 3, 4, 5].map(ticket =>
                     <Ticket
-                        onClick={() => navigation('/ticketdetail/1')}
+                        key={ticket}
+                        onClick={() => { navigation('/ticketdetail/2') }}
                     >
                         {ticket}
                     </Ticket>
@@ -81,7 +80,7 @@ function Home() {
                 </Text>
                 <SubText>
                     <div
-                        onClick={() => navigation('/moreClosed')}
+                        onClick={() => { navigation('/moreClosed') }}
                         style={{ textDecoration: 'none', color: 'inherit' }}
                     >
                         더보기
@@ -89,9 +88,10 @@ function Home() {
                 </SubText>
             </Header>
             <List>
-                {[1, 2, 3, 3, 5, 6].map(ticket =>
+                {[0, 1, 2, 3, 5, 6].map(ticket =>
                     <Ticket
-                        onClick={() => navigation('/ticketdetail/1')}
+                        key={ticket}
+                        onClick={() => { navigation('/ticketdetail/2') }}
                     >
                         {ticket}
                     </Ticket>)}

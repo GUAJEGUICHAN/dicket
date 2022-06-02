@@ -50,11 +50,13 @@ export const Input = styled.input`
 `
 export const EmailInput = styled(Input).attrs({
     type: "email",
+    placeholder: "이메일을 입력해주세요"
 })`
 
 `
 export const PasswordInput = styled(Input).attrs({
     type: "password",
+    placeholder: "비밀번호를 입력해주세요"
 })`
 
 `

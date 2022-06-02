@@ -54,25 +54,27 @@ export default function Block({ to, img, name, place, date, seat }: BlockProps) 
                     navigation(to)
                 }}
             >
-                <tr>
-                    <td>
-                        <ImageContianer>
-                            <MainImage
-                                src={img}
-                            />
-                        </ImageContianer>
-                    </td>
-                    <td>
-                        <Titles>
-                            <p>티켓<br></br>장소<br></br>예약날짜<br></br>예약좌석</p>
-                        </Titles>
-                    </td>
-                    <td>
-                        <Details>
-                            <p>{name}<br></br>{place}<br></br>{date}<br></br>{seat}</p>
-                        </Details>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ImageContianer>
+                                <MainImage
+                                    src={img}
+                                />
+                            </ImageContianer>
+                        </td>
+                        <td>
+                            <Titles>
+                                <p>티켓<br></br>장소<br></br>예약날짜<br></br>예약좌석</p>
+                            </Titles>
+                        </td>
+                        <td>
+                            <Details>
+                                <p>{name}<br></br>{place}<br></br>{date}<br></br>{seat}</p>
+                            </Details>
+                        </td>
+                    </tr>
+                </tbody>
             </Table>
         </Box>
     )

@@ -37,9 +37,6 @@ const Input = styled.input`
     font-size:32px;
     width:140px;
 `
-const Dummy = styled.div`
-    flex:1;
-`
 
 const AddButton = styled.button`
     box-sizing: border-box;

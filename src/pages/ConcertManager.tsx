@@ -1,10 +1,7 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { setLogedIn } from '../slice'
 import { Junbotdae } from '../font/Fonts'
-import PropTypes from "prop-types";
 
 const Container = styled(Junbotdae)`
     font-family: junbotdae;
@@ -51,18 +48,20 @@ function Block({ img, name, place, date, seat, price }: any) {
     return (
         <Box>
             <Table>
-                <tr>
-                    <td>
-                        <Titles>
-                            <p>장소<br></br>공연기간<br></br>공연시간<br></br>관람연령<br></br>가격</p>
-                        </Titles>
-                    </td>
-                    <td>
-                        <Content>
-                            <p>{name}<br></br>{place}<br></br>{date}<br></br>{seat}<br></br>{price}</p>
-                        </Content>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <Titles>
+                                <p>장소<br></br>공연기간<br></br>공연시간<br></br>관람연령<br></br>가격</p>
+                            </Titles>
+                        </td>
+                        <td>
+                            <Content>
+                                <p>{name}<br></br>{place}<br></br>{date}<br></br>{seat}<br></br>{price}</p>
+                            </Content>
+                        </td>
+                    </tr>
+                </tbody>
             </Table>
         </Box>
     )
@@ -109,7 +108,7 @@ const Item = styled.div`
 
 export default function ConcertManager() {
     const navigation = useNavigate()
-    const [info, setInfo] = useState([{ img: "https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg", name: "블루스퀘어", place: "2022.05.10", date: "160분", seat: "8세 이상 관람가능", price: [50000, 40000, 30000] }]);
+    const info = [{ img: "https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg", name: "블루스퀘어", place: "2022.05.10", date: "160분", seat: "8세 이상 관람가능", price: [50000, 40000, 30000] }];
     return (
         <div>
             <Container>
@@ -133,14 +132,13 @@ export default function ConcertManager() {
                     </Detail>
                     <ButtonDiv>
                         <RoundButton
-                            OnClick={() => {
+                            onClick={() => {
                                 navigation('/edit')
                             }}
                         >수정하기
                         </RoundButton>
                     </ButtonDiv>
                 </ContentContainer>
-
             </Container>
             <Bottom>
                 <LineBox>
@@ -178,18 +176,20 @@ export default function ConcertManager() {
                 </NoneLineBox>
                 <NoneLineBox>
                     <Table>
-                        <tr>
-                            <td width="25%"><Item>0x983h3897d3</Item></td>
-                            <td><Item>가열 2번</Item></td>
-                        </tr>
-                        <tr>
-                            <td width="25%"><Item>0x983h3897d3</Item></td>
-                            <td><Item>가열 2번</Item></td>
-                        </tr>
-                        <tr>
-                            <td width="25%"><Item>0x983h3897d3</Item></td>
-                            <td><Item>가열 2번</Item></td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td width="25%"><Item>0x983h3897d3</Item></td>
+                                <td><Item>가열 2번</Item></td>
+                            </tr>
+                            <tr>
+                                <td width="25%"><Item>0x983h3897d3</Item></td>
+                                <td><Item>가열 2번</Item></td>
+                            </tr>
+                            <tr>
+                                <td width="25%"><Item>0x983h3897d3</Item></td>
+                                <td><Item>가열 2번</Item></td>
+                            </tr>
+                        </tbody>
                     </Table>
                 </NoneLineBox>
             </Bottom>

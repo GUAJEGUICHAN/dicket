@@ -15,10 +15,7 @@ const InfoName = styled(GureumGothicSpan)`
     flex:3;
 `
 
-const InfoContent = styled(GureumGothicSpan)`
-    font-size: 24px;
-    flex:7;
-`
+
 const InputContentContainer = styled.div`
     font-size: 24px;
     flex:7;
@@ -63,7 +60,7 @@ export default function SeatInput({ setPopUp }: SeatInputProps) {
                     disabled
                 />
                 <SeatButton
-                    onClick={() => setPopUp(true)}
+                    onClick={() => { setPopUp(true) }}
                 >
                     찾기
                 </SeatButton>

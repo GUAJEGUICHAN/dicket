@@ -41,8 +41,6 @@ const ReservedInfoContainer = styled.div`
 const Text = styled.span`
 `
 
-const Image = styled.img``
-
 const ButtonsInfoContainer = styled.div`
         display:flex;
         flex-direction:row;
