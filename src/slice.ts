@@ -3,6 +3,7 @@ import { Dispatch } from 'react';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { authApi } from './api';
+import { Ticket } from './pages/TicketDetail';
 
 export type InitialStateProp = {
   isLogedIn:boolean;
@@ -15,20 +16,21 @@ export type InitialStateProp = {
 }
 
 export type reservationInfoProps = {
+  Ticket:Ticket;
   email:string;
   name:string;
   time:string;
   location:string;
   seat:string;
-  price:string;
-  priceList:Array<PriceListProps>
+  price:string ;
+  TicketId:string;
 }
 
-export type PriceListProps = {
-  class: string;
-price: string;
-seatNumbers: Array<number>
-}
+// export type PriceListProps = {
+//   class: string;
+// price: string;
+// seatNumbers: Array<number>
+// }
 
 export const { actions, reducer }  = createSlice({
   name: 'app',
@@ -38,6 +40,7 @@ export const { actions, reducer }  = createSlice({
       address:''
     } ,
     reservationInfo:{
+      Ticket:null,
       email:'',
       name:'',
       date:'',
@@ -45,7 +48,7 @@ export const { actions, reducer }  = createSlice({
       location:'',
       seat:'',
       price:'',
-      priceList:[]
+      TicketId:''
     }
   },
   reducers: {

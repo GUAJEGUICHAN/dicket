@@ -1,43 +1,37 @@
-
-import React, { useState } from 'react'
-import styled from 'styled-components'
-
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
-    display:flex;
-    flex-direction:column;
-    padding:20px;
-    border-bottom: 2px solid black;
-`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-bottom: 2px solid black;
+`;
 
 const Header = styled.div`
-    display:flex;
-    flex-direction:row;
-`
+  display: flex;
+  flex-direction: row;
+`;
 const Name = styled.div`
-    flex:3;
-    font-size:40px;
-`
+  flex: 3;
+  font-size: 40px;
+`;
 
 const FileInput = styled.input.attrs({
     type: 'file',
 })`
-    flex:7;
-    background-color:'yellow';
-
-`
+  flex: 7;
+  background-color: 'yellow';
+`;
 
 const ImageContainer = styled.div`
-    display:flex;
-    justify-content:center;
-    align-items:center;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-
-export default function EditMainImageInput() {
-
+export default function EditMainImageInput({ setFile }: { setFile: Function }) {
     const [imageSrc, setImageSrc] = useState('');
-
 
     const encodeFileToBase64 = (fileBlob: any) => {
         const reader: any = new FileReader();
@@ -50,7 +44,6 @@ export default function EditMainImageInput() {
         });
     };
 
-
     return (
         <Container>
             <Header>
@@ -58,6 +51,7 @@ export default function EditMainImageInput() {
                 <FileInput
                     onChange={(event: any) => {
                         encodeFileToBase64(event.target.files[0]);
+                        setFile(event.target.files[0]);
                     }}
                 />
             </Header>
@@ -67,5 +61,77 @@ export default function EditMainImageInput() {
                 </div>
             </ImageContainer>
         </Container>
-    )
+    );
 }
+
+
+// import React, { useState } from 'react'
+// import styled from 'styled-components'
+
+
+// const Container = styled.div`
+//     display:flex;
+//     flex-direction:column;
+//     padding:20px;
+//     border-bottom: 2px solid black;
+// `
+
+// const Header = styled.div`
+//     display:flex;
+//     flex-direction:row;
+// `
+// const Name = styled.div`
+//     flex:3;
+//     font-size:40px;
+// `
+
+// const FileInput = styled.input.attrs({
+//     type: 'file',
+// })`
+//     flex:7;
+//     background-color:'yellow';
+
+// `
+
+// const ImageContainer = styled.div`
+//     display:flex;
+//     justify-content:center;
+//     align-items:center;
+// `
+
+
+// export default function EditMainImageInput() {
+
+//     const [imageSrc, setImageSrc] = useState('');
+
+
+//     const encodeFileToBase64 = (fileBlob: any) => {
+//         const reader: any = new FileReader();
+//         reader.readAsDataURL(fileBlob);
+//         return new Promise((resolve: any) => {
+//             reader.onload = () => {
+//                 setImageSrc(reader.result);
+//                 resolve();
+//             };
+//         });
+//     };
+
+
+//     return (
+//         <Container>
+//             <Header>
+//                 <Name>콘서트 포스터</Name>
+//                 <FileInput
+//                     onChange={(event: any) => {
+//                         encodeFileToBase64(event.target.files[0]);
+//                     }}
+//                 />
+//             </Header>
+//             <ImageContainer>
+//                 <div className="preview">
+//                     {imageSrc && <img src={imageSrc} alt="preview-img" />}
+//                 </div>
+//             </ImageContainer>
+//         </Container>
+//     )
+// }

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { concerts } from "../api";
 
 const Container = styled.div`
     background: white;
@@ -47,8 +48,39 @@ const Ticket = styled.div`
     align-items: center;
 `;
 
+export type ConcertProps = {
+    id: number;
+    title: string;
+    location: string;
+    date: string;
+    startTime: number;
+    endTime: number;
+    age: string;
+    now: number;
+    max: number;
+    concertImg: string;
+    seatImg: string;
+    status: boolean;
+    full: boolean;
+    bossUserId: number;
+    seatInfo: string;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt: string | null;
+}
+
 function Home() {
     const navigation = useNavigate()
+
+    const [concertList, setConcertList] = useState<ConcertProps[]>();
+
+    useEffect(() => {
+        concerts.getConcerts().then(res => {
+            console.log(res.data)
+            setConcertList(res.data.payload)
+        })
+    }, [])
+
     return (
         <Container>
             <Header>
@@ -65,36 +97,27 @@ function Home() {
                 </SubText>
             </Header>
             <List>
-                {[0, 1, 2, 3, 4, 5].map(ticket =>
+                {/* {[0, 1, 2, 3, 4, 5].map(ticket =>
                     <Ticket
                         key={ticket}
                         onClick={() => { navigation('/ticketdetail/2') }}
                     >
                         {ticket}
                     </Ticket>
-                )}
-            </List>
-            <Header>
-                <Text>
-                    예약 종료
-                </Text>
-                <SubText>
-                    <div
-                        onClick={() => { navigation('/moreClosed') }}
-                        style={{ textDecoration: 'none', color: 'inherit' }}
-                    >
-                        더보기
-                    </div>
-                </SubText>
-            </Header>
-            <List>
-                {[0, 1, 2, 3, 5, 6].map(ticket =>
-                    <Ticket
-                        key={ticket}
-                        onClick={() => { navigation('/ticketdetail/2') }}
-                    >
-                        {ticket}
-                    </Ticket>)}
+                )} */}
+                {concertList &&
+                    concertList.map((concert: ConcertProps) =>
+                        <Ticket
+                            key={concert.id}
+                            style={{
+                                backgroundImage: `url(${process.env.REACT_APP_BASE_URL}${concert.concertImg})`,
+                                backgroundPosition: 'center',
+                                backgroundSize: 'cover'
+                            }}
+                            onClick={() => { navigation(`/ticketdetail/${concert.id}`) }}
+                        />
+                    )
+                }
             </List>
         </Container>
     );

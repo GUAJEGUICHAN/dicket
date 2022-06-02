@@ -5,6 +5,7 @@ import { ImCross } from 'react-icons/im'
 import { GureumGothicSpan } from '../../font/Fonts'
 import { useDispatch, useSelector } from 'react-redux'
 import { InitialStateProp, setReservationInfo } from '../../slice'
+import { Ticket } from '../TicketDetail'
 
 const Container = styled.div`
     height:638px;
@@ -58,37 +59,44 @@ const ChooseButton = styled(Button)`
 
 interface SeatPopUpProps {
     setPopUp: Function;
+    tickets: Ticket[];
     seatImage: any
 }
 
-export default function SeatPopUp({ setPopUp, seatImage }: SeatPopUpProps) {
+export default function SeatPopUp({ setPopUp, tickets, seatImage }: SeatPopUpProps) {
+    console.log(tickets)
     const dispatch = useDispatch()
-    const [seat, setSeat] = useState('가열 1번')
-
-    const { price, concertPriceList } = useSelector((state: InitialStateProp) => ({
-        price: state.reservationInfo.price,
-        concertPriceList: state.reservationInfo.priceList
-    }))
-    console.log(concertPriceList)
+    const [seat, setSeat] = useState<string>("")
+    const [ticket, setTicket] = useState<Ticket | undefined>(undefined);
+    // console.log(concertPriceList)
     const handleClose = () => {
         setPopUp(false)
     }
     const handleSeatValue = (event: any) => {
         const value: string = event.target.value
+        if (value === "") return;
+
+        const selectedTicket = tickets.find(t => `${t.PriceType.TicketId}` === value)
+
         console.log(value)
         console.log(typeof value)
 
         setSeat(value)
+        setTicket(selectedTicket)
+        console.log('selectedTicket', selectedTicket)
         dispatch(setReservationInfo({
-            price: concertPriceList.filter(a => value.includes(a.class))[0].price
+            Ticket: selectedTicket,
+            price: selectedTicket ? selectedTicket.PriceType.price : "",
+            seat: selectedTicket ? selectedTicket.PriceType.type + '-' + selectedTicket.seat + '번' : "",
+            TicketId: selectedTicket ? selectedTicket.PriceType.TicketId : ""
         }))
     }
 
     const handleClick = (event: any) => {
         event.preventDefault()
-        dispatch(setReservationInfo({
-            seat
-        }))
+        // dispatch(setReservationInfo({
+        //     seat
+        // }))
         setPopUp(false)
     }
     return (
@@ -103,6 +111,8 @@ export default function SeatPopUp({ setPopUp, seatImage }: SeatPopUpProps) {
             </CloseContainer>
             <ImageContainer>
                 <img
+                    width={`80%`}
+                    height={400}
                     alt='#'
                     // src="../../images/Seats.png"
                     src={seatImage}
@@ -114,15 +124,20 @@ export default function SeatPopUp({ setPopUp, seatImage }: SeatPopUpProps) {
                     value={seat}
                     onChange={handleSeatValue}
                 >
-                    {concertPriceList.map(aClass =>
-                        aClass.seatNumbers.map(n =>
-                            // console.log(n)
-                            <option key={`${aClass.class} ${n}번`} value={`${aClass.class} ${n}번`}>{aClass.class} {n}번</option>
-                        )
-                    )}
+                    <option value="none">=== 선택 ===</option>
+                    {
+                        tickets.map(t => (
+                            t.sale &&
+                            <option
+                                key={t.PriceType.TicketId}
+                                value={t.PriceType.TicketId}
+                            >
+                                {t.PriceType.type} - {t.seat}번
+                            </option>
+                        ))
+                    }
                 </Selector>
-                {/* <Text>77,000원</Text> */}
-                <Text>{price}</Text>
+                <Text>{ticket === undefined ? null : ticket.PriceType.price + "원"}</Text>
                 <Dummy />
             </SelectContainer>
             <ButtonContainer>

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { InitialStateProp, setAddress, setLogedIn } from '../slice'
 import { Junbotdae } from '../font/Fonts'
 import Block from './components/Block'
-import { authApi } from '../api'
+import { authApi, myInfo } from '../api'
 
 const Container = styled(Junbotdae)`
     font-family: junbotdae;
@@ -80,8 +80,8 @@ export default function MyPage() {
 
     const upload = [{ img: 'https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg', name: "아이다", place: "블루스퀘어", date: "05.05", seat: "A열 3번" },]
 
-    const email = 'test@naver.com';
-    const { myAddress } = useSelector((state: InitialStateProp) => ({
+    const { email, myAddress } = useSelector((state: InitialStateProp) => ({
+        email: state.authState.email,
         myAddress: state.authState.address
     }));
 
@@ -101,9 +101,16 @@ export default function MyPage() {
             console.log('로그아웃 실패')
             console.log(err)
         })
-
-
     }
+
+    useEffect(() => {
+        myInfo.getMyConcerts
+        myInfo.getMyTickets
+        return () => {
+
+        }
+    }, [])
+
 
     return (
         <div>
@@ -120,23 +127,18 @@ export default function MyPage() {
             <Info>
                 <MyTable>
                     <tbody>
-
                         <tr>
                             <td>
                                 <Img src="https://search.pstatic.net/common?type=o&size=210x300&quality=75&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20220207_165%2F1644201140882Pb7Tb_JPEG%2F269_image_url_1644201140867.jpg"></Img>
                             </td>
                             <td>
                                 <tr>
-                                    <td><p>이메일:</p></td>
+                                    <td><p>아이디:</p></td>
                                     <td>{email}</td>
                                 </tr>
                                 <tr>
                                     <td><p>주소:</p></td>
                                     <td>{myAddress}</td>
-                                </tr>
-                                <tr>
-                                    <td><p>Token</p></td>
-                                    <td><Meta>Metamask</Meta></td>
                                 </tr>
                             </td>
                         </tr>

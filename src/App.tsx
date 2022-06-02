@@ -81,15 +81,16 @@ export default function App() {
       <RoutesContainer>
         <Header />
         {isLogedIn && myAddress ?
+          // {true ?
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mypage" element={<MyPage />} />
-            <Route path="/ticketdetail/*" element={<TicketDetail />} />
-            <Route path="/reservedinfo/*" element={<ReservedDetail />} />
+            <Route path="/ticketdetail/:concertid" element={<TicketDetail />} />
+            <Route path="/reservedinfo/:ticketid" element={<ReservedDetail />} />
             <Route path="/edit" element={<Edit />} />
             <Route path="/MyConcerts" element={<MyConcerts />} />
             <Route path="/details" element={<Details />} />
-            <Route path="/concertdetail/*" element={<ConcertManager />} />
+            <Route path="/concertdetail/:concertid" element={<ConcertManager />} />
             <Route path="/morereserved" element={<MoreReserved />} />
             <Route path="/moreOpen" element={<Onplus />} />
             <Route path="/moreClosed" element={<Endplus />} />

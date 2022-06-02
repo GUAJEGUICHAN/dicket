@@ -485,7 +485,7 @@ export const mintAnimalTokenContract = new web3.eth.Contract(
 	mintTicketTokenAddress
 )
 
-export const saleAnimalTokenContract = new web3.eth.Contract(
+export const manageContract = new web3.eth.Contract(
 	manageAbi,
 	manageAddress
 )

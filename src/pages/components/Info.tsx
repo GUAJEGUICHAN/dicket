@@ -23,7 +23,7 @@ export type PriceListProps = {
 
 interface InfoProps {
     name: string;
-    content: string | Array<PriceListProps>;
+    content: string | Array<string>;
 }
 
 export default function Info({ name, content }: InfoProps) {
@@ -33,8 +33,7 @@ export default function Info({ name, content }: InfoProps) {
                 {name}
             </InfoName>
             <InfoContent>
-                {typeof content === 'string' ? content : content.map(value => <div
-                    key={value.class + value.price}>{value.class} - {value.price}</div>)}
+                {typeof content === 'string' ? content : content.map(value => <div key={value}>{value}</div>)}
             </InfoContent>
         </Container>
     )

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { InitialStateProp } from '../../slice'
 import { sum } from '../../util'
+import { Ticket } from '../TicketDetail'
 import Info from './Info'
 import SeatInput from './SeatInput'
 
@@ -16,14 +17,16 @@ const Container = styled.div`
 
 interface ReservationInputProps {
     setPopUp: Function;
+    date: string;
+    time: string;
+    tickets: Ticket[]
 }
 
-export default function ReservationInput({ setPopUp }: ReservationInputProps) {
+export default function ReservationInput({ setPopUp, date, time, tickets }: ReservationInputProps) {
     // const [seatMode, setSeatMode] = useState(false)
     const seatMode = false;
-    const { price, seatClassesInfo } = useSelector((state: InitialStateProp) => ({
+    const { price } = useSelector((state: InitialStateProp) => ({
         price: state.reservationInfo.price,
-        seatClassesInfo: state.reservationInfo.priceList
     }))
     // console.log(seatClassesInfo.map(aClass => aClass.seatNumbers))
     return (
@@ -34,16 +37,16 @@ export default function ReservationInput({ setPopUp }: ReservationInputProps) {
                 <>
                     <Info
                         name='공연 날짜'
-                        content='2022.05.10'
+                        content={date}
                     />
                     <Info
                         name='시간'
-                        content='17:00 ~ 22:40'
+                        content={time}
                     />
                     <Info
                         name='잔여 좌석 수'
                         // content='10개'
-                        content={`${sum(seatClassesInfo.map(a => a.seatNumbers.length))}`}
+                        content={`${tickets.length}`}
                     />
                     <SeatInput setPopUp={setPopUp} />
                     <Info

@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { GureumGothicSpan } from '../../font/Fonts'
 import { InitialStateProp } from '../../slice'
+import { Ticket } from '../TicketDetail'
 
 const Container = styled.div`
     display:flex;

@@ -6,6 +6,7 @@ import { BannerContainer, BannerTitle, EmailInput, ImageEthereum, LeftContainer,
 import { useDispatch, useSelector } from 'react-redux'
 import { InitialStateProp, setLogedIn } from '../slice'
 import { authApi } from '../api'
+import { manageAddress, mintAnimalTokenContract, mintTicketTokenAddress } from '../contracts'
 
 const Container = styled.div`
  display: flex;
@@ -43,13 +44,18 @@ export default function Main() {
     }
 
 
-    const handleSignUp = (event: any) => {
+    const handleSignUp = async (event: any) => {
         event.preventDefault();
         console.log('회원가입을 했습니다.')
-        authApi.signUp({ userId, password, address: myAddress }).then((res) => {
+        authApi.signUp({ userId, password, address: myAddress }).then(async (res) => {
+
+            const response = await mintAnimalTokenContract.methods.setApprovalForAll(manageAddress, true).send({ from: myAddress })
+
             console.log('회원가입 성공')
             setSignUpMode(false);
-            console.log(res)
+            console.log(response)
+            alert('회원가입에 성공했습니다. 로그인해주세요')
+
         }).catch(err => {
             console.log('회원가입 실패')
             console.log(err)
